@@ -6,13 +6,15 @@ import { SoftphoneSimulator } from './components/SoftphoneSimulator';
 import { PacketDissector } from './components/PacketDissector';
 import { ResponseCodeMatrix } from './components/ResponseCodeMatrix';
 import { TroubleshootingLab } from './components/TroubleshootingLab';
+import { GlossaryDrawer } from './components/GlossaryDrawer';
 import { TROUBLESHOOTING_QUIZZES } from './data/sipData';
 import { audioEngine } from './utils/audioEngine';
-import { Radio, Heart, ExternalLink } from 'lucide-react';
+import { Radio } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('primer');
   const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [isGlossaryOpen, setIsGlossaryOpen] = useState<boolean>(false);
   const [completedQuizzes, setCompletedQuizzes] = useState<Record<string, boolean>>(() => {
     try {
       const saved = localStorage.getItem('sip_academy_quizzes');
@@ -109,9 +111,21 @@ export default function App() {
             >
               Response Codes
             </button>
+            <button
+              onClick={() => setIsGlossaryOpen(true)}
+              className="hover:text-indigo-600 transition"
+            >
+              Glossary
+            </button>
           </div>
         </div>
       </footer>
+
+      {/* Searchable Glossary Floating Action Button & Slide-Over Drawer */}
+      <GlossaryDrawer
+        isOpen={isGlossaryOpen}
+        onOpenChange={setIsGlossaryOpen}
+      />
     </div>
   );
 }
