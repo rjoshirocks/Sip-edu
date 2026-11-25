@@ -2,5 +2,5 @@
   "name": "SIP & VoIP Interactive Academy",
   "description": "Visual, colorful interactive learning platform for mastering SIP (Session Initiation Protocol) and VoIP fundamentals with animated call diagrams, live softphone simulator, packet dissector, and interactive labs.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
