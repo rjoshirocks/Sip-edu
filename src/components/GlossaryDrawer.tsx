@@ -6,7 +6,6 @@ import {
   GlossaryCategory,
   GlossaryTerm,
 } from '../data/glossaryData';
-import { audioEngine } from '../utils/audioEngine';
 
 interface GlossaryDrawerProps {
   isOpen?: boolean;
@@ -90,17 +89,14 @@ export const GlossaryDrawer: React.FC<GlossaryDrawerProps> = ({
   }, [searchQuery, selectedCategory]);
 
   const handleOpenDrawer = () => {
-    audioEngine.playDTMF('5');
     setOpen(true);
   };
 
   const handleCloseDrawer = () => {
-    audioEngine.playDTMF('0');
     setOpen(false);
   };
 
   const handleJumpToTerm = (termId: string) => {
-    audioEngine.playDTMF('2');
     setSelectedCategory('All');
     setSearchQuery('');
     setHighlightedId(termId);
@@ -238,7 +234,6 @@ export const GlossaryDrawer: React.FC<GlossaryDrawerProps> = ({
                   type="button"
                   onClick={() => {
                     setSelectedCategory('All');
-                    audioEngine.playDTMF('1');
                   }}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition border ${
                     selectedCategory === 'All'
@@ -256,7 +251,6 @@ export const GlossaryDrawer: React.FC<GlossaryDrawerProps> = ({
                       type="button"
                       onClick={() => {
                         setSelectedCategory(category);
-                        audioEngine.playDTMF('3');
                       }}
                       className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition border flex items-center gap-1.5 ${
                         isActive

@@ -6,6 +6,11 @@
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
     font-family: var(--font-sans);
     color: #0f172a;
@@ -25,10 +30,9 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Hide scrollbar for tabs */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
